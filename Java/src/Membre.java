@@ -9,6 +9,7 @@ public class Membre extends Personne {
         super(nom, prenom, id);
         this.dateAdhesion = dateAdhesion;
         this.statut = statut;
+        this.emprunts = new Livre[0];
     }
 
     public void afficherDetails() {
@@ -17,9 +18,11 @@ public class Membre extends Personne {
         System.out.println("ID: " + this.id);
         System.out.println("Date d'adhesion: " + this.dateAdhesion);
         System.out.println("Statut: " + this.statut);
+        System.out.println("Emprunts: " + this.emprunts);
     }
 
-    public void addEmprunts(Livre livre) {
-
+    public void emprunter(Livre livre) {
+        livre.emprunter();
+        this.emprunts[this.emprunts.length] = livre;
     }
 }

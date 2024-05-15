@@ -2,13 +2,13 @@ public class Livre implements Empruntable {
     protected String titre;
     protected String auteur;
     protected String isbn;
-    protected Boolean disponible;
+    protected Boolean isDisponible;
 
-    public Livre(String titre, String auteur, String isbn, Boolean disponible) {
+    public Livre(String titre, String auteur, String isbn, Boolean isDisponible) {
         this.titre = titre;
         this.auteur = auteur;
         this.isbn = isbn;
-        this.disponible = disponible;
+        this.isDisponible = isDisponible;
     }
 
     public String getTitre() {
@@ -35,24 +35,24 @@ public class Livre implements Empruntable {
         this.isbn = isbn;
     }
 
-    public Boolean getDisponible() {
-        return this.disponible;
+    public Boolean getIsDisponible() {
+        return this.isDisponible;
     }
 
-    public void setDisponible(Boolean disponible) {
-        this.disponible = disponible;
+    public void setIsDisponible(Boolean disponible) {
+        this.isDisponible = disponible;
     }
 
     public void afficherDetails() {
         System.out.println("Titre: " + titre);
         System.out.println("Auteur: " + auteur);
         System.out.println("ISBN: " + isbn);
-        System.out.println("Disponible: " + disponible);
+        System.out.println("Disponible: " + isDisponible);
     }
 
     public void emprunter() {
-        if (disponible) {
-            disponible = false;
+        if (isDisponible) {
+            isDisponible = false;
             System.out.println("Le livre " + titre + " a été emprunté.");
         } else {
             System.out.println("Le livre " + titre + " n'est pas disponible.");
@@ -60,8 +60,8 @@ public class Livre implements Empruntable {
     }
 
     public void retourner() {
-        if (!disponible) {
-            disponible = true;
+        if (!isDisponible) {
+            isDisponible = true;
             System.out.println("Le livre " + titre + " a été retourné.");
         } else {
             System.out.println("Le livre " + titre + " n'a pas été emprunté.");
