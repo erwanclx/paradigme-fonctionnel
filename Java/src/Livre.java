@@ -1,4 +1,4 @@
-public class Livre {
+public class Livre implements Empruntable {
     protected String titre;
     protected String auteur;
     protected String isbn;
@@ -48,6 +48,24 @@ public class Livre {
         System.out.println("Auteur: " + auteur);
         System.out.println("ISBN: " + isbn);
         System.out.println("Disponible: " + disponible);
+    }
+
+    public void emprunter() {
+        if (disponible) {
+            disponible = false;
+            System.out.println("Le livre " + titre + " a été emprunté.");
+        } else {
+            System.out.println("Le livre " + titre + " n'est pas disponible.");
+        }
+    }
+
+    public void retourner() {
+        if (!disponible) {
+            disponible = true;
+            System.out.println("Le livre " + titre + " a été retourné.");
+        } else {
+            System.out.println("Le livre " + titre + " n'a pas été emprunté.");
+        }
     }
 
 }
