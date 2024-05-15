@@ -9,10 +9,10 @@ public class Membre extends Personne {
     }
 
     public void afficherDetails() {
-        System.out.println("Nom: " + nom);
-        System.out.println("Prenom: " + prenom);
-        System.out.println("ID: " + id);
-        System.out.println("Date d'adhesion: " + dateAdhesion);
-        System.out.println("Statut: " + statut);
+        System.out.println("Nom: " + this.nom);
+        System.out.println("Prenom: " + this.prenom);
+        System.out.println("ID: " + this.id);
+        System.out.println("Date d'adhesion: " + this.dateAdhesion);
+        System.out.println("Statut: " + this.statut);
     }
 }
