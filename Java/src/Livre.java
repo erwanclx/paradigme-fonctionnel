@@ -4,11 +4,11 @@ public class Livre implements Empruntable {
     protected String isbn;
     protected Boolean isDisponible;
 
-    public Livre(String titre, String auteur, String isbn, Boolean isDisponible) {
+    public Livre(String titre, String auteur, String isbn) {
         this.titre = titre;
         this.auteur = auteur;
         this.isbn = isbn;
-        this.isDisponible = isDisponible;
+        this.isDisponible = true;
     }
 
     public String getTitre() {
@@ -51,8 +51,8 @@ public class Livre implements Empruntable {
     }
 
     public void emprunter() {
-        if (isDisponible) {
-            isDisponible = false;
+        if (this.isDisponible) {
+            setIsDisponible(false);
             System.out.println("Le livre " + titre + " a été emprunté.");
         } else {
             System.out.println("Le livre " + titre + " n'est pas disponible.");
@@ -60,8 +60,8 @@ public class Livre implements Empruntable {
     }
 
     public void retourner() {
-        if (!isDisponible) {
-            isDisponible = true;
+        if (!this.isDisponible) {
+            setIsDisponible(true);
             System.out.println("Le livre " + titre + " a été retourné.");
         } else {
             System.out.println("Le livre " + titre + " n'a pas été emprunté.");
