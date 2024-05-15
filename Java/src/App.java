@@ -8,7 +8,8 @@ public class App {
         Membre membre1 = new Membre("Cloux", "Erwan", 1, new Date(), "");
         Employe employe2 = new Employe("Fleury", "Sébastien", 2, "Directeur", 5000.17);
 
-        Livre firstLivre = new Livre("Le petit chaperon rouge", "Erwan", "3472");
+        Livre firstLivre = new Livre("Le petit chaperon rouge", "Hugoat", "3472");
+        Livre secondLivre = new Livre("Le petit chaperon pas rouge", "Arthur", "3473");
 
         personnes.add(membre1);
         personnes.add(employe2);
@@ -19,6 +20,7 @@ public class App {
         }
 
         membre1.emprunter(firstLivre);
+        membre1.emprunter(secondLivre);
         System.out.println("");
         firstLivre.afficherDetails();
         System.out.println("===============");

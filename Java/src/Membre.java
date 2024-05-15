@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Membre extends Personne {
+public class Membre extends Personne implements Notifiable {
     protected Date dateAdhesion;
     protected String statut;
     ArrayList<Livre> emprunts;
@@ -19,7 +19,10 @@ public class Membre extends Personne {
         System.out.println("ID: " + this.id);
         System.out.println("Date d'adhesion: " + this.dateAdhesion);
         System.out.println("Statut: " + this.statut);
-        System.out.println("Emprunts: " + this.emprunts);
+        System.out.println("Emprunts: ");
+        for (int i = 0; i < this.emprunts.size(); i++) {
+            System.out.println(this.emprunts.get(i).getTitre());
+        }
     }
 
     public void emprunter(Livre livre) {
@@ -34,5 +37,9 @@ public class Membre extends Personne {
                 this.emprunts.remove(i);
             }
         }
+    }
+
+    public void notifierRetour(Livre livre) {
+        System.out.println("Le membre a été notifié du rendu de : " + livre.getTitre());
     }
 }
