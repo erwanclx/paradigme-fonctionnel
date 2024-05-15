@@ -12,8 +12,16 @@ public class Employe extends Personne {
         return this.poste;
     }
 
+    public void setPoste(String poste) {
+        this.poste = poste;
+    }
+
     public Double getSalaire() {
         return this.salaire;
+    }
+
+    public void setSalaire(Double salaire) {
+        this.salaire = salaire;
     }
 
     public void afficherDetails() {
