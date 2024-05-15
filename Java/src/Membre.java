@@ -35,6 +35,7 @@ public class Membre extends Personne implements Notifiable {
             if (this.emprunts.get(i) == livre) {
                 livre.retourner();
                 this.emprunts.remove(i);
+                this.notifierRetour(livre);
             }
         }
     }
