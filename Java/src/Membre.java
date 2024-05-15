@@ -1,15 +1,16 @@
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Membre extends Personne {
     protected Date dateAdhesion;
     protected String statut;
-    protected Livre[] emprunts;
+    ArrayList<Livre> emprunts;
 
     public Membre(String nom, String prenom, int id, Date dateAdhesion, String statut) {
         super(nom, prenom, id);
         this.dateAdhesion = dateAdhesion;
         this.statut = statut;
-        this.emprunts = new Livre[0];
+        this.emprunts = new ArrayList<>();
     }
 
     public void afficherDetails() {
@@ -23,6 +24,15 @@ public class Membre extends Personne {
 
     public void emprunter(Livre livre) {
         livre.emprunter();
-        this.emprunts[this.emprunts.length] = livre;
+        this.emprunts.add(livre);
+    }
+
+    public void retourner(Livre livre) {
+        for (int i = 0; i < this.emprunts.size(); i++) {
+            if (this.emprunts.get(i) == livre) {
+                livre.retourner();
+                this.emprunts.remove(i);
+            }
+        }
     }
 }
